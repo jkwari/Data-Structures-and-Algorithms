@@ -1,5 +1,8 @@
 package Array;
 
+import java.util.Arrays;
+import java.util.HashSet;
+
 public class ArrImplementation {
 
     public ArrImplementation() {
@@ -96,4 +99,49 @@ public class ArrImplementation {
         return true;
     }
 
+    // Find Duplicate Elements in the Array Brute Force Approach:
+    public boolean duplicateElements(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 1; j < nums.length; j++) {
+                if (nums[i] == nums[j]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    // Find duplicates using HashSet, Hash set is used to store
+    // UNIQUE elements (NO DUPLICATION) so our goal is to put all the
+    // data in the array in the HashSet: HERE IS MY CODE
+
+    public boolean findDuplicate(int[] nums) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (set.add(nums[i]) != true) {
+                // Means that there is a duplicate
+                return true;
+            }
+        }
+        // Means No Duplicates in the nums array
+        return false;
+    }
+
+    // Missing number Sequence:
+    public int missingNumberSequence(int[] arr) {
+        // i put +1 in the arr.length because i want to start from 1 not from 0
+        int counter = arr.length + 1;
+        // We use this equation when our questions are about
+        // (Sequence of consecutive numbers, anything about Missing Numbers,
+        // and input that has all numbers except one )
+        // It is called the Gauss's formula
+        int expectedSum = counter * (counter + 1) / 2;
+        int actualSum = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            actualSum = actualSum + arr[i];
+        }
+
+        return expectedSum - actualSum;
+    }
 }
