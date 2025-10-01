@@ -144,4 +144,59 @@ public class ArrImplementation {
 
         return expectedSum - actualSum;
     }
+
+    // Using two pointers
+    public boolean pairSum(int[] nums, int target) {
+        Arrays.sort(nums);
+        int start = 0;
+        int end = nums.length - 1;
+        boolean flag = false;
+        while (start < end) {
+            if (nums[start] + nums[end] == target) {
+                flag = true;
+                break;
+            } else if (nums[start] + nums[end] < target) {
+                start++;
+            } else {
+                end--;
+
+            }
+
+        }
+        return flag;
+    }
+
+    // Solving it using Hashset
+    public boolean pairSumHashSet(int[] nums, int target) {
+        HashSet<Integer> set = new HashSet<>();
+        int result = 0;
+        for (int num : nums) {
+            // As we scan the array we check if the result (target-num) is in
+            // the set:
+            // if "yes" then found the pair which is the result and the num;
+            // If "No" then we didn't find it so we add it to the set.
+
+            result = target - num;
+
+            if (set.contains(result)) {
+                return true;
+            }
+            set.add(num);
+        }
+        return false;
+    }
+
+    // Maximum SubArray problem (Brute Force)
+    // public boolean findMaximumSubArray(int[] nums) {
+    // int sum = 0;
+    // int[] subArray = new int[nums.length];
+    // for (int i = 0; i < nums.length; i++) {
+    // subArray[i] = nums[i];
+    // sum = sum + nums[i];
+    // for (int j = 1; j < nums.length; j++) {
+    // sum += nums[j];
+    // }
+
+    // }
+    // }
 }

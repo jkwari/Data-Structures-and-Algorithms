@@ -19,7 +19,10 @@ public class Main {
         // Arrays.toString(reverseInPlace) + "]");
         // System.out.println("Rotate an Array in Place: [" +
         // Arrays.toString(rotatedArray) + "]");
-        System.out.println("Is there duplicate Elements? : " + arr.findDuplicate(numbers));
-        System.out.println("What is the missing number in the sequence: " + arr.missingNumberSequence(numbers));
+        // System.out.println("Is there duplicate Elements? : " +
+        // arr.findDuplicate(numbers));
+        // System.out.println("What is the missing number in the sequence: " +
+        // arr.missingNumberSequence(numbers));
+        System.out.println("Can we find the target 10 in this array: " + arr.pairSum(numbers, 6));
     }
 }
