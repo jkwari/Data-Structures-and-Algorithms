@@ -23,6 +23,8 @@ public class Main {
         // arr.findDuplicate(numbers));
         // System.out.println("What is the missing number in the sequence: " +
         // arr.missingNumberSequence(numbers));
-        System.out.println("Can we find the target 10 in this array: " + arr.pairSum(numbers, 6));
+        // System.out.println("Can we find the target 10 in this array: " +
+        // arr.pairSum(numbers, 6));
+        System.out.println("The maximum sum in this array is: " + arr.findMaximumSubArray(numbers));
     }
 }

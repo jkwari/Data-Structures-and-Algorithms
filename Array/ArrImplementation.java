@@ -187,16 +187,19 @@ public class ArrImplementation {
     }
 
     // Maximum SubArray problem (Brute Force)
-    // public boolean findMaximumSubArray(int[] nums) {
-    // int sum = 0;
-    // int[] subArray = new int[nums.length];
-    // for (int i = 0; i < nums.length; i++) {
-    // subArray[i] = nums[i];
-    // sum = sum + nums[i];
-    // for (int j = 1; j < nums.length; j++) {
-    // sum += nums[j];
-    // }
+    public int findMaximumSubArray(int[] nums) {
+        int maxSum = Integer.MIN_VALUE; // Start with the smallest Number Possible.
+        for (int i = 0; i < nums.length; i++) {
+            int sum = 0;
+            for (int j = i; j < nums.length; j++) {
+                sum += nums[j];
+            }
+            if (sum > maxSum) {
+                maxSum = sum;
+            }
+        }
 
-    // }
-    // }
+        return maxSum;
+    }
+
 }
