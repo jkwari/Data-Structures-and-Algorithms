@@ -10,6 +10,9 @@ public class Main {
         list1.insertNodeAtEnd(48);
         list1.insertNodeAtEnd(88);
 
+        // System.out.println(list1.deleteFromBeginning());
+        System.out.println(list1.searchForNode(88));
+
         list1.displayList();
         list1.displayList();
     }
