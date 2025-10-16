@@ -119,6 +119,21 @@ public class LinkedList {
         return false;
     }
 
+    public void reverseList() {
+        Node curr, prev, next;
+        prev = null;
+        next = null;
+        curr = head;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+
+        }
+        head = prev;
+    }
+
     public void displayList() {
         Node current = head;
 

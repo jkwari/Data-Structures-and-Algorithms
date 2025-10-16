@@ -12,8 +12,8 @@ public class Main {
 
         // System.out.println(list1.deleteFromBeginning());
         System.out.println(list1.searchForNode(88));
-
+        list1.reverseList();
         list1.displayList();
-        list1.displayList();
+        // list1.displayList();
     }
 }
