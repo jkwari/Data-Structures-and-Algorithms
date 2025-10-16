@@ -134,6 +134,48 @@ public class LinkedList {
         head = prev;
     }
 
+    public int findMiddleNode() {
+        if (head == null) {
+            return -1;
+        }
+        Node curr = head;
+        int counter = 0;
+        while (curr != null) {
+            counter++;
+            curr = curr.next;
+        }
+        // to find the middle index we need to divide the counter by 2
+        int middle = counter / 2;
+        curr = head;
+
+        int i = 0;
+        while (curr != null) {
+            if (i == middle) {
+                return curr.data;
+            }
+            i++;
+            curr = curr.next;
+        }
+        return -1;
+    }
+
+    // Two pointer solution(Fast/Slow)
+    public int findMiddleNodeOptimized() {
+        if (head == null) {
+            return -1;
+        }
+
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        return slow.data;
+    }
+
     public void displayList() {
         Node current = head;
 
