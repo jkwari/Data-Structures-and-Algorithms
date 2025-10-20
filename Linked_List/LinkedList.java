@@ -176,6 +176,49 @@ public class LinkedList {
         return slow.data;
     }
 
+    // Detect Cycle Using Floyd's Algorithm
+    public boolean detectCycle() {
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (fast == slow) {
+                return true;
+            }
+
+        }
+        return false;
+    }
+
+    public int nthNode(int number) {
+        if (head == null) {
+            return -1;
+        }
+        Node curr = head;
+        int length = 0;
+        while (curr != null) {
+            length++;
+            curr = curr.next;
+        }
+        if (length < number) {
+            return -1;
+        } else {
+            curr = head;
+            for (int i = 1; i < length; i++) {
+
+                if (i == number) {
+                    return curr.data;
+                }
+                curr = curr.next;
+            }
+        }
+
+        return -1;
+
+    }
+
     public void displayList() {
         Node current = head;
 
