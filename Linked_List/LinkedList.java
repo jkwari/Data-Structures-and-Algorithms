@@ -192,30 +192,44 @@ public class LinkedList {
         return false;
     }
 
-    public int nthNode(int number) {
+    public int nthNodeFromStart(int number) {
+        // If the list is empty
         if (head == null) {
             return -1;
         }
+        // If we have nodes we do look for the node data at a certain index;
         Node curr = head;
+        int index = 1;
+        while (curr != null) {
+            if (index == number) {
+                return curr.data;
+
+            }
+            curr = curr.next;
+            index++;
+
+        }
+        return -1;
+    }
+
+    public int nthNodeFromEnd(int number) {
+        if (head == null) {
+            return -1; // the list is empty
+        }
+        Node curr = head;
+        // since we are doing the search from the end we need to know the length
         int length = 0;
+        // This loop is counting;
         while (curr != null) {
             length++;
             curr = curr.next;
         }
-        if (length < number) {
-            return -1;
-        } else {
-            curr = head;
-            for (int i = 1; i < length; i++) {
-
-                if (i == number) {
-                    return curr.data;
-                }
-                curr = curr.next;
-            }
+        curr = head;
+        for (int i = 1; i < length; i++) {
+            curr = curr.next;
         }
 
-        return -1;
+        return curr.data;
 
     }
 
