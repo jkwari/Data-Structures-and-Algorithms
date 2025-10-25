@@ -12,9 +12,10 @@ public class Main {
         list1.insertNodeAtEnd(44);
 
         // System.out.println(list1.deleteFromBeginning());
-        System.out.println(list1.searchForNode(88));
+        // System.out.println(list1.searchForNode(88));
         // list1.reverseList();
-        System.out.println("This is the middle element: " + list1.findMiddleNode());
+        // System.out.println("This is the middle element: " + list1.findMiddleNode());
+        System.out.println("This is the number of Nodes in the List: " + list1.countNodes());
         list1.displayList();
         // list1.displayList();
     }

@@ -233,6 +233,37 @@ public class LinkedList {
 
     }
 
+    public int countNodes() {
+        // First we need to check if the list is empty or not
+        if (head == null) {
+            return -1;
+        }
+        // we need to initialize an int count
+        int count = 0;
+
+        // we need a curr node
+        Node curr = head;
+
+        // we need to make loop until we reach null
+        while (curr != null) {
+            count++;
+            curr = curr.next;
+        }
+
+        // return the count
+        return count;
+
+    }
+
+    public void sortedTwoLists(LinkedList list) {
+        // Checking if both list are empty
+        if (head == null && list.head == null) {
+            return;
+        }
+        // we need to loop through two lists
+
+    }
+
     public void displayList() {
         Node current = head;
 
