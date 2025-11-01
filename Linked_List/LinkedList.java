@@ -260,7 +260,14 @@ public class LinkedList {
         if (head == null && list.head == null) {
             return;
         }
-        // we need to loop through two lists
+        // Here is what i think we need to do:
+        // 1. i think we need to sort each list seperatly.
+        // 2. then we start the comparison between two lists and decide who
+        // comes first.
+        // 3. based on the comparison we start pupolating the new list with our sorted list
+
+        // 
+
 
     }
 
