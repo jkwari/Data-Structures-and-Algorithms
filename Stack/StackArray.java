@@ -1,13 +1,13 @@
 package Stack;
 
-public class StackArray {
+public class StackArray<T> {
 
-    private int[] stack;
+    private T[] stack;
     private int capacity;
     private int top;
 
     public StackArray(int size) {
-        stack = new int[size];
+        stack = (T[]) new Object(size);
         capacity = size;
         top = -1; // -1 means empty stack
     }
@@ -21,32 +21,57 @@ public class StackArray {
     }
 
     // Basic Stack Operations
-    public void push(int data) {
+    public void push(T data) {
         if (isFull()) {
             return;
         } else {
-            // ++top is used here because the starting index for Arrays is 0
-            // and the initial value for top is -1
             stack[++top] = data;
         }
-
     }
 
-    public int pop() {
+    public T pop() {
         if (isEmpty()) {
-            // -1 means nothing in this case
-            return -1;
+            return null; // for generic type, null indicates empty
         } else {
             return stack[top--];
         }
     }
 
-    public int peek() {
+    public T peek() {
         if (isEmpty()) {
-            return -1;
+            return null;
         } else {
             return stack[top];
         }
+    }
+
+    public boolean validParentheses(T[] parantheses) {
+        if (parantheses == null) {
+            return false;
+        }
+        for (T symbol : parantheses) {
+            // Those are openings ( { [
+            if (symbol.equals("{") || symbol.equals("(") || symbol.equals("[")) {
+                push(symbol);
+            } else if (symbol.equals("}") || symbol.equals(")") || symbol.equals("]")) {
+                if (isEmpty()) {
+                    return false;
+                }
+
+                T temp = peek();
+                if (temp.equals("}") && symbol.equals("{")
+                        || temp.equals("]") && symbol.equals("[")
+                        || temp.equals(")") && symbol.equals("(")) {
+                    pop();
+
+                } else {
+                    return false;
+                }
+            }
+
+        }
+        return isEmpty(); // if this is true so there is a match parentheses because we popped them
+                          // earlier
     }
 
 }
